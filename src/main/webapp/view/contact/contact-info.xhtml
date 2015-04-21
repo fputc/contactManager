@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+
+	<ui:composition>
+	
+		<h:form class="contact-form">
+			<div class="form-group">
+				<label>First name</label>&nbsp;
+				<h:outputText value="#{contactBean.contact.firstName}" />
+			</div>
+
+			<div class="form-group">
+				<label>Last name</label>&nbsp;
+				<h:outputText value="#{contactBean.contact.lastName}" />
+			</div>
+
+			<div class="form-group">
+				<label>Birth date</label>&nbsp;
+				<h:outputText value="#{contactBean.contact.birthDate}" >
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</div>
+		</h:form>
+
+	</ui:composition>
+
+</h:body>
+</html>

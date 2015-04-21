@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:define name="metadata">
+	<f:metadata>
+		<f:viewParam name="contactId" value="#{contactBean.contact.id}" />
+	</f:metadata>
+</ui:define>
+
+<h:body>
+
+	<ui:composition template="/view/layout/main.xhtml">
+		<ui:define name="content">
+			<f:event listener="#{contactBean.findContact}" type="preRenderView" />
+
+			<div class="row">
+
+				<div class="col-lg-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Contact info</h3>
+						</div>
+						<div class="panel-body">
+							<ui:include src="contact-info.xhtml" />
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">Telephone numbers</h3>
+						</div>
+						<div class="panel-body">
+
+							<ui:include src="/view/contact-number/list.xhtml">
+								<ui:param name="allowDelete" value="false" />
+							</ui:include>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

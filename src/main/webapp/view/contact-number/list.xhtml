@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+
+	<ui:composition>
+
+		<h:form>
+			<h:dataTable id="contact-number-table" class="table"
+				value="#{contactBean.contact.numbers}" var="number" rules="all">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Number" />
+					</f:facet>
+					<h:outputText value="#{number.telephoneNumber}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Type" />
+					</f:facet>
+					<h:outputText value="#{number.type.label}" />
+				</h:column>
+
+				<h:column rendered="#{allowDelete}" >
+					<f:facet name="header">
+						<h:outputText value="Action" />
+					</f:facet>
+					<h:panelGroup class="action">
+						<h:commandLink value="Delete"
+							action="#{contactBean.deleteNumber(number)}" />
+					</h:panelGroup>
+				</h:column>
+
+			</h:dataTable>
+
+		</h:form>
+
+	</ui:composition>
+
+</h:body>
+</html>

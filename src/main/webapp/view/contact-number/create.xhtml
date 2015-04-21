@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+
+	<ui:composition>
+
+		<h:form>
+			<label>Add new</label>
+
+			<div class="row">
+
+				<div class="col-lg-6">
+
+					<h:inputText id="tnumber" 
+						value="#{contactBean.number.telephoneNumber}" class="form-control">
+					</h:inputText>
+				</div>
+
+				<div class="col-lg-3">
+					<h:selectOneMenu value="#{contactBean.number.type}"
+						class="form-control">
+						<f:selectItems value="#{contactBean.numberTypes}" var="type"
+							itemValue="#{type}" itemLabel="#{type.label}" />
+					</h:selectOneMenu>
+				</div>
+
+				<div class="col-lg-3">
+					<h:commandLink value="Add number" class="btn btn-success"
+						action="#{contactBean.saveNumber}"></h:commandLink>
+				</div>
+			</div>
+		</h:form>
+
+	</ui:composition>
+
+</h:body>
+</html>
